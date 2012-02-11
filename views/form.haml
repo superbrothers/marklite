@@ -1,6 +1,6 @@
 %form{"accept-charset" => "UTF-8", :action => "/#{@post.hash_id}", :method => "post"}
   != Rack::Csrf::csrf_tag(env)
-  %textarea{:name => :content}!~ @post.content
+  %textarea.content{:name => :content}!~ @post.content
   .btn-group
     - unless @post.id.nil?
       %input{:type => :hidden, :name => "_method", :value => "put"}
