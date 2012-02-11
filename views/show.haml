@@ -1,0 +1,18 @@
+.container.markdown
+  !~ content
+.btn-group
+  %button#btn-delete.btn.btn-danger.w50 Delete
+  %a.btn.btn-success.w50{:href => "/#{@post.hash_id}/edit"} Edit
+
+%form{:method => :post, :action => "/#{@post.hash_id}", :style => "display:none;"}
+  %input#submit-delete{:type => :submit, :value => "DELETE"}
+  %input{:type => :hidden, :name => :_method, :value => "delete"}
+  != Rack::Csrf::csrf_tag(env)
+
+:javascript
+window.addEventListener("load", function () {
+  document.getElementById("btn-delete").addEventListener("click", function () {
+    if (!confirm("Are you sure you want to delete this?")) return;
+    document.getElementById("submit-delete").click();
+  }, false);
+}, false);

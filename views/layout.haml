@@ -1,0 +1,23 @@
+!!! 5
+%html
+  %head
+    %title= ["Marklite", @post.hash_id].select{|s|!s.nil?}.join(" - ")
+    %meta{:charset => "UTF-8"}
+    %link{:rel => "stylesheet", :href => "http://yui.yahooapis.com/3.4.1/build/cssreset/cssreset-min.css"}
+    -#%link{:rel => "stylesheet", :href => "/stylesheets/bootstrap.min.css"}
+    %link{:rel => "stylesheet", :href => "/stylesheets/bootstrap.css"}
+    %link{:rel => "stylesheet", :href => "/stylesheets/application.css"}
+  %body
+    - if defined?(style) && style == false
+      != yield
+    - else
+      %header.navbar
+        .navbar-inner
+          .container
+            %a.brand{:href => "/"} Marklite
+      .container
+        != yield
+      %footer
+        Created by
+        %a{:href => "http://twitter.com/superbrothers", :target => "_blank"} @superbrothers
+    %script{:src => "/javascripts/application.js", :defer => true}

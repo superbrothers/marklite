@@ -1,0 +1,15 @@
+source :rubygems
+
+gem "rack"
+gem "sinatra"
+gem "haml"
+gem "activesupport", :require => "active_support/all"
+gem "activerecord"
+gem "sinatra-activerecord", :require => "sinatra/activerecord"
+gem "sqlite3"
+gem "rack_csrf"
+gem "rake"
+gem "shotgun"
+gem "redcarpet"
+gem "coderay"
+gem "bundler"
