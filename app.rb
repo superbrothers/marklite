@@ -2,6 +2,7 @@
 require "sinatra"
 require "sinatra/activerecord"
 require "rack/csrf"
+require "redcarpet"
 require "coderay"
 
 configure do
