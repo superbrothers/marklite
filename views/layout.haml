@@ -19,6 +19,8 @@
       .container
         != yield
       %footer
-        Created by
-        %a{:href => "http://twitter.com/superbrothers", :target => "_blank"} @superbrothers
+        - if request.path_info == "/"
+          .container
+            Created by
+            %a{:href => "http://twitter.com/superbrothers", :target => "_blank"} @superbrothers
     %script{:src => "/javascripts/application.js", :defer => true}
