@@ -6,7 +6,7 @@ require "redcarpet"
 require "coderay"
 
 configure do
-  set :database, ENV["DATABASE_URL"] || "sqlite://production.sqlite3"
+  set :database, ENV["DATABASE_URL"] || "sqlite:///production.sqlite3"
   set :public_folder, File.dirname(__FILE__) + '/static'
   set :haml, {:escape_html => true}
 
