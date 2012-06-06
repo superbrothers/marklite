@@ -2,6 +2,9 @@
   .container {
     padding: 0 10px !important;
   }
+  .navbar-inner .container {
+    padding: 0 !important;
+  }
 }
 html, body {
   background-color: #E3E9ED !important;
@@ -10,7 +13,7 @@ html, body {
 .container {
   max-width: 940px !important;
   width: auto !important;
-  padding: 0 20px !important;
+  padding: 0 20px;
 }
 header.navbar {
   margin-bottom: 18px;
