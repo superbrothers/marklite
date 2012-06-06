@@ -7,6 +7,11 @@ html, body {
   background-color: #E3E9ED !important;
   height: 100% !important;
 }
+.container {
+  max-width: 940px !important;
+  width: auto !important;
+  padding: 0 20px !important;
+}
 header.navbar {
   margin-bottom: 18px;
 }
