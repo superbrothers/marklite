@@ -16,6 +16,12 @@
         .navbar-inner
           .container
             %a.brand{:href => "/"} Marklite
+            %ul.nav.pull-right
+              - if !@post.id.nil? && defined?(content)
+                %li
+                  %a{:href => "/#{@post.hash_id}/edit"}
+                    %i.icon-edit.icon-white
+                    Edit
       .container
         != yield
       %footer

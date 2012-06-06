@@ -1,8 +1,7 @@
 %form{"accept-charset" => "UTF-8", :action => "/#{@post.hash_id}", :method => "post"}
   != Rack::Csrf::csrf_tag(env)
-  %textarea.content{:name => :content}!~ @post.content
-  .btn-group
+  .button-group
     - unless @post.id.nil?
       %input{:type => :hidden, :name => "_method", :value => "put"}
-      %a.btn.w50{:href => "/#{@post.hash_id}"} Cancel
-    %button.btn.btn-primary{:class => (@post.id.nil? ? "w100" : "w50"), :type => :submit, :value => "Post"} Post
+    %button.btn.btn-primary{:type => :submit, :value => "Post"} Post
+  %textarea.content{:name => :content}!~ @post.content

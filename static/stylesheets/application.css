@@ -7,6 +7,9 @@ html, body {
   background-color: #E3E9ED !important;
   height: 100% !important;
 }
+header.navbar {
+  margin-bottom: 18px;
+}
 .navbar-inner {
   border-radius: 0 0 0 0 !important;
 }
@@ -15,26 +18,18 @@ html, body {
   font-weight: bold;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 30px rgba(255, 255, 255, 0.125);
 }
-.container.markdown {
-  margin-bottom: 18px;
+.navbar-inner ul.nav {
+  font-weight: bold;
 }
 /* button */
 .btn {
   font-size: 14px;
   font-weight: bold;
   padding: 7px 14px;
+  width: 100px;
 }
-.btn.w50 {
-  width: 50%;
-}
-.btn.w100 {
-  width: 100%;
-}
-.btn-group .btn {
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -o-box-sizing: border-box;
+.button-group .btn {
+  float: right;
 }
 /* form */
 form {
@@ -45,7 +40,7 @@ textarea.content {
   -webkit-box-sizing: border-box;
   width: 100%;
   height: 540px;
-  margin-bottom: 18px;
+  margin: 7px 0 0;
   font-family: Menlo,Monaco,"Courier New",monospace !important;
 }
 /* markdown */
@@ -62,7 +57,7 @@ textarea.content {
 }
 /* footer */
 body > footer {
-  padding: 18px 0 20px;
+  padding: 12px 0 18px;
 }
 body > footer .container {
   text-align: right;
