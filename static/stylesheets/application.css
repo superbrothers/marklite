@@ -15,8 +15,12 @@ html, body {
   width: auto !important;
   padding: 0 20px;
 }
+body > .container {
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
 header.navbar {
-  margin-bottom: 18px;
+  margin-bottom: 0 !important;
 }
 .navbar-inner {
   border-radius: 0 0 0 0 !important;
@@ -84,7 +88,7 @@ textarea.content {
 }
 /* footer */
 body > footer {
-  padding: 12px 0 18px;
+  padding: 5px 0 18px;
 }
 body > footer .container {
   text-align: right;
