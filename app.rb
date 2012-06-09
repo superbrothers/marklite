@@ -1,6 +1,7 @@
 # -*- coding: UTF-8 -*-
 require "sinatra"
 require "sinatra/activerecord"
+require "sinatra/content_for"
 require "rack/csrf"
 require "redcarpet"
 require "coderay"
@@ -41,6 +42,10 @@ post "/" do
   else
     redirect "/"
   end
+end
+
+post "/preview" do
+  markdown(params[:content])
 end
 
 get "/:hash_id.:format" do

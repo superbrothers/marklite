@@ -29,6 +29,18 @@ header.navbar {
 .navbar-inner ul.nav {
   font-weight: bold;
 }
+/* tabbable */
+.nav-tabs > .active > a, .nav-tabs > .active > a:hover {
+  background-color: #E3E9ED !important;
+  border-color: #CCCCCC #CCCCCC transparent !important;
+}
+.nav-tabs {
+  border-color: #CCCCCC !important;
+  margin-right: 112px;
+}
+.nav {
+  margin-bottom: 12px;
+}
 /* button */
 .btn {
   font-size: 14px;
@@ -48,7 +60,7 @@ textarea.content {
   -webkit-box-sizing: border-box;
   width: 100%;
   height: 540px;
-  margin: 7px 0 0;
+  margin: 0;
   font-family: Menlo,Monaco,"Courier New",monospace !important;
 }
 /* markdown */

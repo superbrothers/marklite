@@ -1,7 +1,34 @@
+- content_for :javascript do
+  %script{:src => "/javascripts/bootstrap-tab.js"}
+  :javascript
+    $(function () {
+      var $content = $("textarea.content")
+        , $markdown = $("div.markdown")
+        , _csrf = $("input[name='_csrf']").val();
+      $('a[data-toggle="tab"]').on('shown', function (e) {
+        $markdown.html("");
+        var content = $content.val();
+        if (!e.target.href.indexOf("#preview") || content.length === 0) return;
+        $.post("/preview", {"content": content, "_csrf": _csrf}, function (data) {
+          $markdown.html(data);
+        });
+      });
+    });
+
 %form{"accept-charset" => "UTF-8", :action => "/#{@post.hash_id}", :method => "post"}
   != Rack::Csrf::csrf_tag(env)
   .button-group
     - unless @post.id.nil?
       %input{:type => :hidden, :name => "_method", :value => "put"}
     %button.btn.btn-primary{:type => :submit, :value => "Post"} Post
-  %textarea.content{:name => :content}!~ @post.content
+  .tabbable
+    %ul.nav.nav-tabs
+      %li.active
+        %a{:href => "#edit", "data-toggle" => "tab"} Edit
+      %li
+        %a{:href => "#preview", "data-toggle" => "tab"} Preview
+    .tab-content
+      #edit.tab-pane.active
+        %textarea.content{:name => :content}!~ @post.content
+      #preview.tab-pane
+        .markdown
