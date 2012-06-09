@@ -4,13 +4,22 @@
     $(function () {
       var $content = $("textarea.content")
         , $markdown = $("div.markdown")
+        , $progress = $("#preview .progress")
         , _csrf = $("input[name='_csrf']").val();
       $('a[data-toggle="tab"]').on('shown', function (e) {
+        var content = $content.val()
+          , start = +new Date();
         $markdown.html("");
-        var content = $content.val();
         if (!e.target.href.indexOf("#preview") || content.length === 0) return;
+        $progress.show();
+        $markdown.hide();
         $.post("/preview", {"content": content, "_csrf": _csrf}, function (data) {
-          $markdown.html(data);
+          var wait = 500 - (+new Date() - start);
+          setTimeout(function () {
+            $markdown.html(data);
+            $progress.hide();
+            $markdown.show();
+          }, (wait < 0) ? 0 : wait);
         });
       });
     });
@@ -31,4 +40,6 @@
       #edit.tab-pane.active
         %textarea.content{:name => :content}!~ @post.content
       #preview.tab-pane
+        .progress.progress-striped.active{:style => "display: none;"}
+          .bar{:style => "width: 100%;"}
         .markdown

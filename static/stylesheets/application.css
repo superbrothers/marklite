@@ -59,6 +59,9 @@ header.navbar {
 form {
   margin: 0 !important;
 }
+form .tab-content {
+  min-height: 540px;
+}
 textarea.content {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -66,6 +69,10 @@ textarea.content {
   height: 540px;
   margin: 0;
   font-family: Menlo,Monaco,"Courier New",monospace !important;
+}
+#preview .progress {
+  width: 250px;
+  margin: 125px auto 0 auto;
 }
 /* markdown */
 .markdown {
