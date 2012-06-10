@@ -1,2 +1,10 @@
-.markdown
+- content_for :javascript do
+  :javascript
+    jQuery(function () {
+      var $markdown = jQuery(".markdown");
+      $markdown.tableDecoration();
+      $markdown.css("visibility", "visible");
+    });
+
+.markdown{:style => "visibility: hidden;"}
   !~ content

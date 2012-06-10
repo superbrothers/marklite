@@ -18,6 +18,7 @@
           setTimeout(function () {
             $markdown.html(data);
             $progress.hide();
+            $markdown.tableDecoration();
             $markdown.show();
           }, (wait < 0) ? 0 : wait);
         });
