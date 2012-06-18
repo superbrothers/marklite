@@ -4,11 +4,11 @@
     %title= ["Marklite", @post.hash_id].select{|s|!s.nil?}.join(" - ")
     %meta{:charset => "UTF-8"}
     %meta{:content => "width=320, initial-scale=1.0", :name => "viewport"}
-    %link{:rel => "stylesheet", :href => "http://yui.yahooapis.com/3.4.1/build/cssreset/cssreset-min.css"}
-    -#%link{:rel => "stylesheet", :href => "/stylesheets/bootstrap.min.css"}
-    %link{:rel => "stylesheet", :href => "/stylesheets/coderay.css"}
-    %link{:rel => "stylesheet", :href => "/stylesheets/bootstrap.css"}
-    %link{:rel => "stylesheet", :href => "/stylesheets/application.css"}
+    - ["http://yui.yahooapis.com/3.4.1/build/cssreset/cssreset-min.css",
+       "/stylesheets/coderay.css",
+       "/stylesheets/bootstrap" + (ENV["RACK_ENV"] === "production" ? ".min.css" : ".css"),
+       "/stylesheets/application.css"].each do |href|
+      %link{:rel => "stylesheet", :href => href}
     %link{:rel => "shortcut icon", :href => "/favicon.ico", :type => "image/x-icon"}
   %body
     - if defined?(style) && style == false
