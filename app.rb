@@ -17,6 +17,10 @@ configure do
   ActiveRecord::Base.logger = Logger.new("log/database.log")
 end
 
+configure :production do
+  set :scss, {:style => :compressed}
+end
+
 class Post < ActiveRecord::Base
   validates :content, :presence => true
 end
@@ -25,6 +29,11 @@ class HTMLwithCoderay < Redcarpet::Render::HTML
   def block_code(code, language)
     CodeRay.scan(code, language).div(:css => :class)
   end
+end
+
+get "/application.css" do
+  content_type "text/css", :charset => "utf-8"
+  scss :application
 end
 
 get "/" do

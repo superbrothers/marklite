@@ -7,7 +7,7 @@
     - ["http://yui.yahooapis.com/3.4.1/build/cssreset/cssreset-min.css",
        "/stylesheets/coderay.css",
        "/stylesheets/bootstrap" + (ENV["RACK_ENV"] === "production" ? ".min.css" : ".css"),
-       "/stylesheets/application.css"].each do |href|
+       "/application.css"].each do |href|
       %link{:rel => "stylesheet", :href => href}
     %link{:rel => "shortcut icon", :href => "/favicon.ico", :type => "image/x-icon"}
   %body

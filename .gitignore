@@ -3,3 +3,4 @@ vendor/bundle/*
 .DS_Store
 *.sqlite3
 log/*.log
+.sass-cache
